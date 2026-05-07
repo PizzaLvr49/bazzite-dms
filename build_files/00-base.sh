@@ -3,15 +3,15 @@
 set -euxo pipefail
 
 dnf5 -y remove xwaylandvideobridge
-dnf5 -y install kitty
 dnf5 -y install xdg-desktop-portal-gnome qt6ct
-dnf5 -y install wlsunset cava playerctl
+dnf5 -y install wlsunset cava playerctl brightnessctl
 
-dnf5 -y copr enable yalter/niri
-dnf5 -y install niri
-dnf5 -y copr disable yalter/niri
+dnf5 -y copr enable avengemedia/dms
+dnf5 -y install niri dms
 
-dnf5 -y --enable-repo=terra install noctalia-shell
+mkdir -p /usr/lib/systemd/user/niri.service.wants
+ln -s /usr/lib/systemd/user/dms.service \
+    /usr/lib/systemd/user/niri.service.wants/dms.service
 
 # Personal Preferences
 

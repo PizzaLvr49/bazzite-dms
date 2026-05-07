@@ -17,7 +17,6 @@ exists() {
 
 install_language_tools() {
 	exists just-lsp || cargo install just-lsp
-	exists cargo-bloat || cargo install cargo-bloat
 	exists flamegraph || cargo install flamegraph
 }
 
@@ -26,6 +25,7 @@ install_shell_tools() {
 	exists rpm-ostree || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree
 	exists qs || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/qs
 	exists niri || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/niri
+	chezmoi init --apply https://github.com/PizzaLvr49/dotfiles.git
 }
 
 install_dev_tools() {
