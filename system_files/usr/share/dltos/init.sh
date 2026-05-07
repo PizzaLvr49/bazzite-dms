@@ -55,14 +55,6 @@ install_container_tools() {
 	exists firecracker || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/firecracker
 }
 
-install_ai_tools() {
-	exists ramalama || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/ramalama
-
-	clampdown_url=https://github.com/89luca89/clampdown/releases/download/v0.1/clampdown-linux-amd64
-	clampdown_bin=/usr/local/bin/clampdown
-	exists clampdown || curl -fL $clampdown_url -o $clampdown_bin && chmod +x $clampdown_bin
-}
-
 install_data_tools() {
 	exists duckdb || curl https://install.duckdb.org | sh
 	exists labstore || go install github.com/IllumiKnowLabs/labstore/cmd/labstore@v0.1.0
@@ -81,6 +73,5 @@ install_language_tools &&
 	install_graphics_tools &&
 	install_dev_tools &&
 	install_container_tools &&
-	install_ai_tools &&
 	install_data_tools &&
 	install_gaming_tools
