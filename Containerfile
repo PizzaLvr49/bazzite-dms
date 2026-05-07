@@ -5,7 +5,7 @@ COPY system_files/usr/share/dltos /dltos
 # FROM golang:1.26.2-trixie AS go_builder
 # RUN go install github.com/probeldev/niri-float-sticky@v0.0.8
 
-FROM ghcr.io/ublue-os/bazzite-dx-nvidia-open:stable
+FROM ghcr.io/ublue-os/bazzite-dx-nvidia:stable
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
   --mount=type=cache,dst=/var/cache \
