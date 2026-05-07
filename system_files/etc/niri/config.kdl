@@ -140,16 +140,6 @@ window-rule {
 }
 
 window-rule {
-  match app-id="dev.zed.Zed"
-  open-maximized true
-}
-
-window-rule {
-  match app-id="dev.zed.Zed" title="^Zed — Settings$"
-  open-floating true
-}
-
-window-rule {
   match app-id="code"
   open-maximized true
 }
