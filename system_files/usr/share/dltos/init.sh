@@ -42,7 +42,6 @@ install_graphics_tools() {
 }
 
 install_dev_tools() {
-	alternatives --install /usr/bin/vim vim /usr/bin/nvim 100
 	exists hugo || go install github.com/gohugoio/hugo@v0.111.3
 }
 
