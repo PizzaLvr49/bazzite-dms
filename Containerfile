@@ -1,9 +1,5 @@
 FROM scratch AS ctx
 COPY build_files /
-COPY system_files/usr/share/dltos /dltos
-
-# FROM golang:1.26.2-trixie AS go_builder
-# RUN go install github.com/probeldev/niri-float-sticky@v0.0.8
 
 FROM ghcr.io/ublue-os/bazzite-dx-nvidia-gnome:stable
 
@@ -11,10 +7,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
   --mount=type=cache,dst=/var/cache \
   --mount=type=cache,dst=/var/log \
   --mount=type=tmpfs,dst=/tmp \
-  /ctx/00-base.sh && \
-  /ctx/10-tooling.sh
-
-# COPY --from=go_builder /go/bin/niri-float-sticky /usr/bin/niri-float-sticky
+  /ctx/00-base.sh
 
 COPY system_files /
 
