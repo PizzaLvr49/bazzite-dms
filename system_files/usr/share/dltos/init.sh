@@ -4,15 +4,18 @@ set -euxo pipefail
 
 DLTOS_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
-# shellcheck disable=SC1091
-. "$DLTOS_DIR/cargo-env.sh"
-
 exists() {
 	[ $# -ge 1 ] || return 1
 	command -v "$1" >/dev/null 2>&1
 }
 
 install_language_tools() {
+	if ! exists rustup; then
+		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+	fi
+	# shellcheck disable=SC1091
+	. "$HOME/.cargo/env"
+	rustup component add rust-analyzer
 	exists just-lsp || cargo install just-lsp
 	exists flamegraph || cargo install flamegraph
 }
