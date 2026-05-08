@@ -7,7 +7,6 @@ dnf5 -y install xdg-desktop-portal-gnome qt6ct
 dnf5 -y install wlsunset cava playerctl brightnessctl
 
 dnf5 -y copr enable avengemedia/dms
-dnf5 -y copr enable outfoxxed/quickshell
 dnf5 -y install niri dms quickshell-git matugen
 
 mkdir -p /usr/lib/systemd/user/niri.service.wants
