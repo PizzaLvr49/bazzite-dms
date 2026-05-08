@@ -16,3 +16,5 @@ ln -s /usr/lib/systemd/user/dms.service \
 # Personal Preferences
 
 dnf5 -y install alacritty nu
+
+dnf5 -y update
