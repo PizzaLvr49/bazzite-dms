@@ -17,4 +17,4 @@ ln -s /usr/lib/systemd/user/dms.service \
 
 dnf5 -y install alacritty nu
 
-dnf5 -y update
+dnf5 -y update --exclude=gamescope --exclude=gamescope-libs
