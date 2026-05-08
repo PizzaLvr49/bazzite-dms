@@ -1,6 +1,9 @@
 ---
 name: Build container image
 on:
+  schedule:
+    - cron: '0 6 * * *'
+      timezone: 'America/New_York'
   workflow_dispatch:
 
 env:
