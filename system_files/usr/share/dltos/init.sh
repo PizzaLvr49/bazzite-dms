@@ -25,7 +25,6 @@ install_shell_tools() {
 	exists rpm-ostree || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree
 	exists qs || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/qs
 	exists niri || ln -s /usr/bin/distrobox-host-exec /usr/local/bin/niri
-	chezmoi init --apply https://github.com/PizzaLvr49/dotfiles.git
 }
 
 install_gaming_tools() {
